@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="margin">
+   <h5 class="rowText">calculating the number of customers in a Non deterministic model</h5>
+   <!--   <h5 class="rowText">the arrival rate is higher than the service rate</h5>-->
+   <h4 class="rowText">M/M/1 model</h4>
+   <br>
+   <form #signUpForm="ngForm" (ngSubmit)="calculateResult()">
+      <div class="row form-group">
+         <div class="col-md-4">
+            <div class="row form-group">
+               <div class="col-md-4 rowText">
+                  <label for="lambda">Lambda</label>
+               </div>
+               <div class="col-md-8">
+                  <input [(ngModel)]="queue.lambda"
+                         class="form-control"
+                         id="lambda"
+                         name="lambda"
+                         required
+                         type="number">
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="row form-group">
+               <div class="col-md-4 rowText">
+                  <label for="mu">Mu</label>
+               </div>
+               <div class="col-md-8">
+                  <input [(ngModel)]="queue.mu"
+                         class="form-control"
+                         id="mu"
+                         name="mu"
+                         required
+                         type="number">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row justify-content-center">
+         <button [disabled]="!signUpForm.valid" class="btn btn-primary" type="submit">Calculate</button>
+      </div>
+   </form>
+   <br>
+   <h5 class="rowText">the value of the performance metric </h5>
+   <h5 *ngIf="result.L" class="rowText">L = {{result.L}}</h5>
+   <h5 *ngIf="result.LQ" class="rowText">LQ = {{result.LQ}}</h5>
+   <h5 *ngIf="result.W" class="rowText">W = {{result.W}}</h5>
+   <h5 *ngIf="result.WQ" class="rowText">WQ = {{result.L}}</h5>
+
+</div>

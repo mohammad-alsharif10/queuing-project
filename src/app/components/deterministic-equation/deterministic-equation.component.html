@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="margin">
+   <h5 class="rowText">calculating the number of customers in a deterministic model</h5>
+   <h5 class="rowText">the arrival rate is higher than the service rate</h5>
+   <br>
+   <form #signUpForm="ngForm" (ngSubmit)="calculateResult()">
+      <div class="row form-group">
+         <div class="col-md-4">
+            <div class="row form-group">
+               <div class="col-md-4 rowText">
+                  <label for="lambda">Lambda</label>
+               </div>
+               <div class="col-md-8">
+                  <input [(ngModel)]="queue.lambda"
+                         class="form-control"
+                         id="lambda"
+                         name="lambda"
+                         required
+                         type="number">
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="row form-group">
+               <div class="col-md-4 rowText">
+                  <label for="mu">Mu</label>
+               </div>
+               <div class="col-md-8">
+                  <input [(ngModel)]="queue.mu"
+                         class="form-control"
+                         id="mu"
+                         name="mu"
+                         required
+                         type="number">
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 rowText">
+            <div class="row form-group">
+               <div class="col-md-4">
+                  <label for="systemCapacity">System Capacity</label>
+               </div>
+               <div class="col-md-8">
+                  <input [(ngModel)]="queue.systemCapacity"
+                         class="form-control"
+                         id="systemCapacity"
+                         name="systemCapacity"
+                         required
+                         type="number">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row form-group">
+         <div class="col-md-8">
+            <div class="row form-group">
+               <div class="col-md-6 rowText">
+                  <label for="timeToCompute">Time at which compute the number of customers</label>
+               </div>
+               <div class="col-md-6">
+                  <input [(ngModel)]="queue.timeToCompute"
+                         class="form-control"
+                         id="timeToCompute"
+                         name="timeToCompute"
+                         required
+                         type="number">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row justify-content-center">
+         <button [disabled]="!signUpForm.valid" class="btn btn-primary" type="submit">Calculate</button>
+      </div>
+   </form>
+   <h1 *ngIf="result.Nt">the result is {{result.Nt}}</h1>
+</div>
