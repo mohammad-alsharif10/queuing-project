@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Queue} from '../model/queue';
-import {Result} from '../model/result';
+import {Queue} from '../../model/queue';
+import {Result} from '../../model/result';
 
 @Component({
    selector: 'app-non-deterministic-equation',
